@@ -1,0 +1,26 @@
+<div class="loginParent">
+<div class="card loginCard">
+    <div class="card-body loginCardBody" >
+      <h3 class="card-title loginTitle">Login</h3>
+      <form {{action "authenticate" on="submit"}}>
+        {{!-- <label for="email">Email</label> --}}
+        {{input value=email placeholder="Enter Login" class="input-fields px-5 h-10"}}
+        {{!-- <label for="password">Password</label> --}}
+        {{input value=password type="password" placeholder="Enter Password" class="input-fields px-5 h-10"}}
+        <button class="btn btn-outline-light btn-lg px-5 loginBtn" type="submit">Login</button>
+      </form>
+      {{#if error}}
+        {{error}}
+      {{/if}}
+      
+    </div>
+  </div>
+</div>
+
+{{!-- <div class="card w-50">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <a href="#" class="btn btn-primary">Button</a>
+  </div>
+</div> --}}

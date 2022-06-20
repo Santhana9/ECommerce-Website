@@ -1,0 +1,29 @@
+{{!-- <img src="assests/images/homePageImage2.jpeg" alt="Background-image" class="Image">
+<div class="homePage">
+  <div class="card home-card" style="width: 70%;">
+    <div class="card-body">
+      <h1 class="shopName">Multi Store</h1>
+      {{#if this.session.isAuthenticated}}
+        <a href="#" {{action "logout"}} class="homePage-link1">Logout</a>
+        {{#link-to 'dashboard' class="homePage-link1"}} Go to Dashboard{{/link-to}}
+      {{else}}
+        {{#link-to 'login' class="homePage-link1"}}Login{{/link-to}}
+        {{#link-to 'signup' class="homePage-link1"}}Signup{{/link-to}}
+      {{/if}}
+    </div>
+  </div>
+</div> --}}
+
+  <section id="hero">
+    <div class="hero-container">
+      <a href="index.html" class="hero-logo" data-aos="zoom-in"><img src="assets/img/hero-logo.png" alt=""></a>
+      <h1 data-aos="zoom-in">Welcome To MultiStore</h1>
+      {{#if this.session.isAuthenticated}}
+        <a href="#" {{action "logout"}} class="btn-get-started scrollto index-page-btn">Logout</a>
+        {{#link-to 'dashboard' class="btn-get-started scrollto index-page-btn"}} Go to Dashboard{{/link-to}}
+      {{else}}
+        {{#link-to 'login' class="btn-get-started scrollto index-page-btn"}}Login{{/link-to}}
+        {{#link-to 'signup' class="btn-get-started scrollto index-page-btn"}}Signup{{/link-to}}
+      {{/if}}
+    </div>
+  </section>

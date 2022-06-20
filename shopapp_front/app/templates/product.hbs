@@ -1,0 +1,70 @@
+{{!-- app/templates/products.hbs --}}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col">
+             {{#link-to 'dashboard'class="nav-link"}}<i class="fa-solid fa-arrow-left fa-2x"></i>{{/link-to}}
+        </div>
+        <div class="col">
+            <h1>Product details</h1>
+        </div>
+        <div class="col">
+            {{#link-to 'cart'class="nav-link"}}
+                <i class="fa-solid fa-cart-shopping fa-2x">
+                {{#if this.shoppingCart.itemsIds.content.length}}
+                    <span class="cart-items-count-product d-inline-flex justify-content-center align-items-center">
+                        {{this.shoppingCart.itemsIds.length}}
+                    </span>
+                {{/if}}
+            </i>{{/link-to}}
+        </div>
+    </div>
+    <hr>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <img class="product-image" src="{{this.model.images}}" alt="">
+            </div>
+
+            <div class="col-sm-6">
+                <h1>{{this.model.title}}</h1>
+                {{quantity-checker this.model.quantity this.model.price}}
+                {{#if this.model.quantity}}                    
+                    <label class="quantity-label" for="quantity">Quantity Selector:</label>
+                    {{input type="number" name="quantity" id="quantity" class="quantity-selector" min="0" value=this.quantity}}
+                    <p></p>
+                    <button class="btn btn-success" {{action "order" this.model  on="click"}}>Order now</button>
+                    <button class="btn btn-success" {{action "addToItem" this.model on="click"}}>
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span>Add to Cart</span>
+                    </button>
+                {{/if}}
+            </div>
+        </div>
+    </div> 
+    <hr> 
+    <h4> Description</h4>
+    <div class="container">
+        {{#each this.model.description as |line|}}
+            <p>{{line}}</p>
+        {{/each}}
+        <ul>
+        {{description-formatter this.model.description}}
+        </ul>
+    </div>
+
+</div>
+
+<div class="dialog-container {{if this.dialogBox "show-dialog" "hide-dialog"}}">
+    <div class="dialog">
+        <h5>{{this.model.title}}</h5>
+        <h5>The price is {{this.price}}</h5>
+        <h5 class="confirmation">Are you sure, you wanna place this order?</h5>
+        <h5>Quantity: {{this.quantity}}</h5>
+        <div class="dialog-buttons">
+            <button {{action "orderItem"}} class="btn btn-success">
+                <i class="fa-solid fa-badge-check"></i>Yes
+            </button>
+            <button {{action "hideDialog"}} class="btn btn-danger">Cancel</button>
+        </div>
+    </div>
+</div>

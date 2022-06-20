@@ -1,0 +1,25 @@
+<div class="container mt-5">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"> {{#link-to 'dashboard'}}Home{{/link-to}}</li>
+      <li class="breadcrumb-item active" aria-current="page">Order</li>
+    </ol>
+  </nav>
+  <h3> Your Orders</h3>
+    {{#each this.model as |item|}}
+      {{#if item.order_id.processing}}
+        <div class="card">
+            <div class="card-body">
+                <h6>{{item.product_id.title}}</h6>
+                <p>Quantity: {{item.quantity}}</p>
+                <p>Price: Rs. {{item.price}}</p>
+                <p>Delivery Status: {{date-formatter item.order_id.deliveryDate}}</p>
+                {{#if (cancel-button item.order_id.deliveryDate)}}
+                  <button class="btn btn-danger" {{action "cancelOrder" item.order_id.id}}>Cancel Order</button>
+                {{/if}}
+            </div>   
+        </div>
+      {{/if}}
+        
+    {{/each}}
+</div>

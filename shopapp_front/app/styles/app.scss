@@ -1,0 +1,443 @@
+// @import url("homepage.css");
+@import 'bootstrap';
+@import './index-page';
+@import './404-page';
+//@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+/* home page styling */
+// *{
+//     margin: 100px;
+//     padding: 100px;
+// }
+.homePage{
+    display: inline-block;
+    position: absolute;
+    left: 55%;
+    top: 20%;
+    width: 55%;
+    
+}
+.homePage h1{
+    font-size: 128px;
+    font-family: 'Sacramento' sans-serif;
+}
+.homePage h3{
+    font-size: 32px;
+    padding-bottom: 5%;
+}
+.Image{
+    width: 100%;
+    height: 100%;
+
+}
+.home-card{
+    background-color: rgba(16, 15, 15, 0.089);
+    color: lightyellow;
+}
+.link{
+    text-decoration: none;
+    color: lightyellow;
+}
+
+.card-text{
+    font-size: 20px;
+}
+.homePage-link1{
+    display: block;
+    font-size: 25px;
+    text-align: center;
+    border: 5px solid lightyellow;
+    border-radius: 25px;
+    text-decoration: none;
+    color: lightyellow;
+    margin-bottom: 20px;
+}
+.homePage-link2{
+    display: block;
+    font-size: 25px;
+    text-align: center;
+    border: 5px solid lightyellow;
+    border-radius: 25px;
+    text-decoration: none;
+    color: lightyellow;
+}
+
+.link:hover{
+    text-decoration: none;
+    color: black;
+}
+
+.homePage-link1:hover{
+    color: black;
+    background-color: lightyellow;
+}
+.homePage-link2:hover{
+    color: black;
+    background-color: lightyellow;
+}
+/* home page styling */
+
+/*=========================================================================================================================================================*/
+/*Login Page styling*/
+
+.loginParent{
+    height: 100%;
+    width: 100%;
+    background-color:#711A75;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.loginCard{
+    background-color: #711A75;
+    align-items: center;
+    position:absolute;
+    top: 20%;
+    right: 40%;
+    height: 50%;
+    width: 25%;
+}
+
+.loginCardBody{
+    width: 100%;
+    font-size: 32px;
+    border: 2px solid black;
+    border-radius: 5%;
+    background-color:#180A0A;
+    color: white;
+    align-items: center;
+    text-align: center;
+}
+.loginTitle{
+    font-size: 40px;
+    margin-bottom: 60px;
+}
+
+.input-fields{
+    display: block;
+    margin-bottom: 20px;
+    width: 100%;
+    border: 2px solid white;
+    border-radius: 25px;
+}
+.loginBtn{
+    margin-top: 20px;
+}
+
+/*=============================================================================================================================================================*/
+/*signupPage styles*/
+.signupParent{
+    height: 100%;
+    width: 100%;
+    background-color:#711A75;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.signupCard{
+    background-color: #711A75;
+    align-items: center;
+    position:absolute;
+    top: 20%;
+    right: 40%;
+    height: 50%;
+    width: 25%;
+}
+.signupCardBody{
+    width: 100%;
+    font-size: 32px;
+    border: 2px solid black;
+    border-radius: 5%;
+    background-color:#180A0A;
+    color: white;
+    align-items: center;
+    text-align: center;
+}
+
+.signupInputs{
+    text-align: center;
+    display: block;
+    margin-bottom: 20px;
+    width: 100%;
+    border: 2px solid white;
+    border-radius: 25px;
+}
+.signUpTitle{
+    font-size: 40px;
+    margin-bottom: 60px;
+}
+
+.signUpBtn{
+    margin-top: 20px;
+}
+.signup-error{
+    margin-top: 10px;
+    color: red;
+}
+
+/*Dashboard*/
+.dashboardCard{
+    display: inline-block;
+    margin: 10px;
+    width: 18rem
+}
+.dashboardDel{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 15px;
+    color: grey;
+}
+.dashboard-image{
+    width: 286px;
+    height: 183.5px;
+}
+.dashboard-link{
+    text-decoration: none;
+    color: white;
+}
+.dashboard-image:hover{
+    margin-bottom: -4px;
+}
+
+.dashboard-link:hover{
+    color: grey;
+}
+
+.dashboard-link::after{
+    color: white;
+}
+
+.dashboard-btn:hover{
+    margin-top: -4px;
+}
+
+p .dashboard-rs{
+    font-size: 16px;
+}
+p.dashboard-price{
+    font-size: 25px;
+    font-weight: bold;
+    color: red;  
+}
+
+
+/*Counter*/
+.counter {
+    width: 150px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.counter input {
+    width: 50px;
+    border: 0;
+    line-height: 30px;
+    font-size: 20px;
+    text-align: center;
+    background: #0052cc;
+    color: #fff;
+    appearance: none;
+    outline: 0;
+}
+.counter span {
+    display: block;
+    font-size: 25px;
+    padding: 0 10px;
+    cursor: pointer;
+    color: #0052cc;
+    user-select: none;
+}
+
+
+/*Breadcrumb*/
+.breadcrumb{
+    background-color: lightgray;
+    height: 30px;
+}
+
+
+/*product*/
+.product-image{
+    border: 1px solid;
+    width: 300px;
+    height: 200px;
+}
+.quantity-selector{
+    margin-top: 10px;
+    display: block;
+}
+.quantity-label{
+    display: block;
+    margin-top: 10px;
+}
+
+// input[type=number]::-webkit-inner-spin-button, 
+// input[type=number]::-webkit-outer-spin-button { 
+//   cursor: pointer; 
+//   margin: 0; 
+// }
+
+
+/*Dialog Box*/
+.hide-dialog{
+    visibility: hidden;
+}
+
+.show-dialog{
+    visibility: visible;
+}
+
+.dialog-container{
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+}
+
+.dialog{
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 30px 50px;
+    width: 600px;
+    max-width: 100%;
+    text-align: center;
+}
+
+.dialog-buttons{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+
+
+/*Cart Items*/
+.cart-items-count{
+    position: relative;
+    bottom: 10px;
+    right: 10px;
+    font-size: 12px;
+    color: white;
+    background-color: red;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+}
+.cart-items-count-product{
+    position: relative;
+    bottom: 19px;
+    right: 18px;
+    font-size: 12px;
+    color: white;
+    background-color: red;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+
+}
+
+.price-title{
+    font-size: 30px;
+}
+.price-amount{
+    font-size: 28px;
+}
+.cart-remove-btn{
+    margin-top: 10px;
+}
+
+/*==========================Admin Panel===================================*/
+.panel{
+    max-height: 100%;
+}
+.left-panel{
+    border-right: 1px solid rgb(32, 31, 31);
+    background-color: rgb(32, 31, 31);
+    max-height: 100%;
+
+    p{
+        color: white;
+        padding: 10px;
+        cursor: pointer;
+    };
+    p:active{
+        background-color: white;
+        color: black;
+    }
+}
+
+h2.main-pannel{
+    text-align: center;
+}
+.hidden-content{
+    visibility: hidden;
+    display: none;
+}
+
+.admin-add-btn{
+    margin-bottom: 10px;
+}
+
+.orders-card{
+    margin-bottom: 10px;
+}
+.cart-empty{
+    text-align: center;
+    color: crimson;
+    margin: auto 0;
+
+}
+
+/*ProductComponent*/
+.product-detail{
+    margin: 50px auto;
+    max-width: 800px;
+
+    .form-group{
+        margin: 10px 0;
+    }
+    .product-update{
+        margin: 20px 0;
+        text-align: center;
+    }
+}
+
+/*Update Profile*/
+.user-container{
+    height: 600px;
+    width: 600px;
+    input{
+        margin: 10px;
+    }
+    .update-button-div{
+        text-align: center;
+    }
+    .profile-update-button{
+        margin-top: 10px;
+        text-align: center;
+    }
+
+}
+
+.change-password-container{
+    margin: 10px;
+    margin-top: 20px;
+}
+.close-button{
+    cursor: pointer;
+    font-size: 30px;
+    position: relative;
+    left: 270px;
+    bottom: 25px;
+}

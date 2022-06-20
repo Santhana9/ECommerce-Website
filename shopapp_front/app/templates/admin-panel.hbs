@@ -1,0 +1,69 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Admin Panel</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+      <div class="d-flex">
+        <button class="btn btn-outline-success" {{action "logout"}}>LogOut</button>
+      </div>
+  </div>
+</nav>
+
+<div class="row panel">
+    <div class="col-sm-2 left-panel">
+        <p {{action "toggleProducts" on="click"}}>Products</p>
+        <p {{action "toggleOrders" on="click"}}>Orders</p>
+    </div>
+    <div class="col-sm-10 main-pannel">
+        <div class="{{unless this.openProducts "hidden-content"}}">
+            <h2 class="admin-product-title">Product Panel</h2>
+            {{#link-to 'add-product' class="btn btn-primary admin-add-btn"}} Add Product {{/link-to}}
+            {{#each this.model.products as |item|}}
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <img class="product-image" src="{{item.images}}" alt="">
+                            </div>
+                            <div class="col">
+                                <h3>{{item.title}}</h3>
+                                <h4><span>Price: </span>Rs {{item.price}}</h4>
+                                <p>Qty: {{item.quantity}}</p>
+                                {{#link-to 'edit-product' item.id class="btn btn-dark"}} Edit {{/link-to}}
+                                {{!-- <button class="btn btn-danger" {{action "deleteProduct" item}}>Delete</button> --}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+        <div class="{{unless this.openOrders "hidden-content"}}">
+            <h2>Order Panel</h2>
+            {{#each this.model.orders as |item|}}
+            <div class="card orders-card">
+                <div class="card-title">
+                    <h3 class="card-header">Billing Details</h3>
+                </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <h3>{{item.product_id.title}}</h3>
+                        <p>Quantity: {{item.quantity}}</p>
+                        <p>Price: Rs. {{item.price}}</p>
+                    </div>
+                    <div class="col">
+                        <h3>User details</h3>
+                        <p>User ID: {{item.order_id.user_id.id}}</p>
+                        <p>Name: {{item.order_id.user_id.firstName}} {{item.order_id.user_id.lastName}}</p>
+                        <p>deliver to: {{item.order_id.user_id.address}}</p>
+                        <p>Email ID: {{item.order_id.user_id.email}}</p>
+                        <p>Delivery Status: {{admin-date-formatter item.order_id.deliveryDate}}</p>
+                    </div>
+                </div>
+            </div>   
+        </div>
+            {{/each}}
+        </div>
+    </div>
+</div>

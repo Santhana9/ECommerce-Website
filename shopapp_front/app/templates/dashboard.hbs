@@ -1,0 +1,65 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Multi Store</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="http://localhost:4200">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="http://localhost:4200/order">Your Orders</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="fa-solid fa-user"></i>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="http://localhost:4200/user">Your Profile</a></li>
+            <li><a class="dropdown-item" href="#">Processing Order</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#" {{action "logout"}}>Logout</a></li>
+          </ul>
+        </li>
+        {{!-- <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li> --}}
+        <li class="nav-item mx-auto">
+          <div>
+          {{#link-to 'cart'class="nav-link"}}
+            <i class="fa-solid fa-cart-shopping"></i>
+            {{#if this.shoppingCart.itemsIds.content.length}}
+              <span class="cart-items-count d-inline-flex justify-content-center align-items-center">
+                {{shoppingCart.itemsIds.length}}
+              </span>
+            {{/if}}
+          {{/link-to}}
+          </div>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+{{!-- Welcome {{this.currentser.firstName}} {{this.currentuser.lastName}} --}}
+
+{{#each this.model as |item|}}
+          {{#if item.is_shown}}
+            <div class="card dashboardCard">
+              <img class=" card-img-top dashboard-image" src="{{item.images}}" alt="">
+              <div class="card-body">
+                <h4>{{item.title}}</h4>
+                <p class="dashboard-price"><span class="dashboard-rs" style="color: black;">Rs.</span>{{item.price}}</p>
+                <button class="btn btn-dark dashboard-btn" href="">
+                  <a class="dashboard-link" href="http://localhost:4200/product/{{item.id}}">More details</a>
+                </button> 
+              </div>
+            </div>       
+          {{/if}}
+{{/each}}

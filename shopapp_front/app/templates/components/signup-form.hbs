@@ -1,0 +1,29 @@
+<div class="signupParent">
+  <div class="card signupCard">
+    <div class="card-body signupCardBody">
+      <h3 class="card-title SignUpTitle">Sign Up!</h3>
+      <form {{action "submit" on="submit"}}>
+        {{!-- <label for="first_name">First Name</label> --}}
+        {{input value=user.firstName placeholder="Enter first name" class="signupInputs"}}
+        {{!-- <label for="last_name">Last Name</label> --}}
+        {{input value=user.lastName placeholder="Enter last name" class="signupInputs"}}
+        {{!-- <label for="address">Address</label> --}}
+        {{input value=user.address placeholder="Enter address" class="signupInputs"}}
+        {{!-- <label for="email">Email</label> --}}
+        {{input value=user.email type="email" placeholder="Enter email" class="signupInputs"}}
+        {{!-- <label for="password">Password</label> --}}
+        {{input value=user.password type="password" placeholder="Enter password" class="signupInputs"}}
+
+        {{input value=user.password_confirmation type="password" placeholder="Confirm password" class="signupInputs" }}
+        <button class="btn btn-outline-light btn-lg px-5 signUpBtn" type="submit">SignUp</button>
+      </form>
+      <div class="signup-error">
+        {{#if errorMessage}}
+          {{#each errorMessage as |error|}}
+            <h6 class="error"> <i class="fa-solid fa-circle-exclamation"></i> {{error}}</h6>
+          {{/each}}
+        {{/if}}
+      </div>
+    </div>
+  </div>
+</div>

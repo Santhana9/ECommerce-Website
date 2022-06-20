@@ -1,0 +1,82 @@
+<div class="container mt-5">
+    <h2>Shopping Cart <i class="fa-solid fa-cart-shopping"></i></h2>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"> {{#link-to 'dashboard'}}Home{{/link-to}}</li>
+            <li class="breadcrumb-item active" aria-current="page">Shopping Cart</li>
+        </ol>
+    </nav>
+
+    {{#if this.shoppingCart.itemsIds.content.length}}
+        {{#each this.shoppingCart.itemsIds as |item|}}
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            <img class="product-image" src="{{item.images}}" alt="">
+                        </div>
+                        <div class="col">
+                            <h3>{{item.title}}</h3>
+                            {{#if (product-availablity item.id this)}}
+                                <h4><span>Price: </span>Rs {{item.price}}</h4>
+                                <label class="quantity-label">Quantity Selector:</label>
+                                {{input type="number" name="quantity"  class="quantity-selector" min="0" value=item.quantity}}
+                            {{else}}
+                                <p class="alert alert-danger">Currently Unavailable</p>
+                            {{/if}}
+                            <button class="btn btn-danger cart-remove-btn" {{action "removeItem" item}}>Remove Item</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        {{/each}}
+
+        <section class="w-50 ml-auto mb-5 mt-4">
+            <div class="row">
+                <span class="col price-title">Total</span>
+                <span class="col price-amount">Rs. {{shoppingCart.totalPrice}}</span>
+            </div>
+        </section>
+        <button type="button" {{action "order" on="click"}} class="btn btn-success"> Checkout</button>
+        <button class="btn btn-warning" {{action "clearCart"}}>Clear Cart</button>
+        
+    {{else}}
+        <h2 class="cart-empty">Cart is Empty!!</h2>
+    {{/if}}
+</div>
+
+<div class="dialog-container {{if this.cartDialogBox "show-dialog" "hide-dialog"}}">
+    <div class="dialog">
+        <h3>Products List</h3>
+        <div class="row">
+            <div class="col">
+                <h4>Products</h4>
+            </div>
+            <div class="col">
+                <h4>Quantity</h4>
+            </div>
+        </div>
+        {{#each this.shoppingCart.itemsIds.content as |item|}}
+            <div class="row">
+                <div class="col">
+                    <h5>{{item.title}}</h5>
+                </div>
+                <div class="col">
+                    {{item.quantity}}
+                </div>
+            </div>
+        {{/each}}
+        <h5>The price is {{this.shoppingCart.totalPrice}}</h5>
+        <h5 class="confirmation">Are you sure, you wanna place this order?</h5>
+        <h5></h5>
+        <div class="dialog-buttons">
+            <button {{action "orderItem"}} class="btn btn-success">
+                <i class="fa-solid fa-badge-check"></i>Yes
+            </button>
+            <button {{action "hideDialog"}} class="btn btn-danger">Cancel</button>
+        </div>
+    </div>
+</div>
+
+
